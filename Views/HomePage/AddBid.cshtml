@@ -1,0 +1,29 @@
+﻿@model WebApplication4.Models.AddBid
+@{
+    ViewData["Title"] = "AddBid";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>AddBid</h2>
+
+<div class="row">
+    @using (Html.BeginForm("AddBid", "HomePage", FormMethod.Post,
+new { @class = "col s6 offset-s3" }))
+    {
+        @Html.ValidationSummary(true)
+
+        <div class="row">
+            <div class="input-field col s12">
+                @Html.LabelFor(Model => Model.Bid_Amount)
+                @Html.TextBoxFor(Model => Model.Bid_Amount, new { @class = "validate", @type = "number" })
+                @Html.ValidationMessageFor(model => model.Bid_Amount, "", new { @class = "validate" })
+            </div>
+        </div>
+     
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Submit
+            <i class="material-icons right">send</i>
+        </button>
+    }
+
+</div>

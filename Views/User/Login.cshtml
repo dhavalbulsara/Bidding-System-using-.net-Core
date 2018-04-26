@@ -1,0 +1,36 @@
+﻿@model WebApplication4.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+<div class="row">
+    @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "col s6 offset-s3" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="input-field col s12">
+                @Html.LabelFor(Model => Model.username)
+                @Html.TextBoxFor(Model => Model.username, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "validate" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                @Html.LabelFor(Model => Model.password)
+                @Html.PasswordFor(Model => Model.password, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "validate" })
+
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Login
+            <i class="material-icons right">send</i>
+        </button>
+    }
+</div>
+

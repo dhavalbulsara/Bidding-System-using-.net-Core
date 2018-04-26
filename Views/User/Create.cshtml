@@ -1,0 +1,98 @@
+﻿@model WebApplication4.Models.UserRegisteration
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>User Registration</h2>
+
+<div class="row">
+    @using (Html.BeginForm("Create", "User", FormMethod.Post,
+new { @class = "col s6 offset-s3" }))
+    {
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <div class="input-field col s4">
+                @Html.LabelFor(Model => Model.fname)
+                @Html.TextBoxFor(Model => Model.fname, new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.fname, "", new { @class = "validate" })
+            </div>
+            <div class="input-field col s4">
+                @Html.LabelFor(Model => Model.mname)
+                @Html.TextBoxFor(Model => Model.mname, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.mname,"", new { @class = "validate" })
+
+            </div>
+            <div class="input-field col s4">
+                @Html.LabelFor(Model => Model.lname)
+                @Html.TextBoxFor(Model => Model.lname, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.lname, "", new { @class = "validate" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                @Html.DropDownListFor(Model => Model.gender, new List<SelectListItem>
+        {
+        new SelectListItem{ Text="Male", Value = "M" },
+        new SelectListItem{ Text="Female", Value = "F" },
+        })
+                @Html.LabelFor(Model => Model.gender)
+
+            </div>
+            <div class="input-field col s6">
+                @Html.LabelFor(Model => Model.email)
+                @Html.TextBoxFor(Model => Model.email, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "validate" })
+
+            </div>
+            <div class="input-field col s4">
+                @Html.LabelFor(Model => Model.phone)
+                @Html.TextBoxFor(Model => Model.phone, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "validate" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                @Html.LabelFor(Model => Model.address)
+                @Html.TextBoxFor(Model => Model.address, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "validate" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                @Html.LabelFor(Model => Model.username)
+                @Html.TextBoxFor(Model => Model.username, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "validate" })
+
+            </div>
+            <div class="input-field col s6">
+                @Html.LabelFor(Model => Model.password)
+                @Html.PasswordFor(Model => Model.password, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "validate" })
+
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Submit
+            <i class="material-icons right">send</i>
+        </button>
+    }
+
+</div>
+<script type="text/javascript">
+    //var elem = document.querySelector('select');
+    //var instance = M.FormSelect.init(elem, options);
+    //var instance = M.FormSelect.getInstance(elem);
+
+    // Or with jQuery
+
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+
+</script>
+
+

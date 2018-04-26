@@ -1,0 +1,10 @@
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\bin\Release\netcoreapp2.0\WebApplication4.deps.json
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\bin\Release\netcoreapp2.0\WebApplication4.runtimeconfig.json
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\bin\Release\netcoreapp2.0\WebApplication4.runtimeconfig.dev.json
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\bin\Release\netcoreapp2.0\WebApplication4.dll
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\bin\Release\netcoreapp2.0\WebApplication4.pdb
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\obj\Release\netcoreapp2.0\WebApplication4.csproj.CoreCompileInputs.cache
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\obj\Release\netcoreapp2.0\WebApplication4.AssemblyInfoInputs.cache
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\obj\Release\netcoreapp2.0\WebApplication4.AssemblyInfo.cs
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\obj\Release\netcoreapp2.0\WebApplication4.dll
+C:\Users\dhava\source\repos\WebApplication4\WebApplication4\obj\Release\netcoreapp2.0\WebApplication4.pdb

@@ -1,0 +1,75 @@
+﻿@model WebApplication4.Models.PropertyListModel
+
+@{
+    ViewData["Title"] = "PropertyDetail";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>PropertyDetail</h2>
+
+<div class="row">
+
+    <div class="col s6 offset-s3">
+        <table>
+            <tr>
+                <td>  @Html.DisplayNameFor(model => model.Address)</td>
+                <td>
+                    @Html.DisplayFor(Model => Model.Address)
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.MinPrice)</td>
+                <td> @Html.DisplayFor(model => model.MinPrice)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.CurrentPrice)</td>
+                <td> @Html.DisplayFor(model => model.CurrentPrice)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Type)</td>
+                <td> @Html.DisplayFor(model => model.Type)</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col s6 offset-s3">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Bid Date
+                    </th>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Bid Amount
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Bids)
+            {
+                <tr>
+                    <td>
+                        @item.BidDate
+                    </td>
+                    <td>
+                        @item.Username
+                    </td>
+                    <td>
+                        @item.Bid_Amount
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+         <a class="waves-effect waves-light btn" href="@Url.Action("AddBid", "HomePage", new { id = Model.ID })"><i class="material-icons left">add</i>Place Bid</a>
+
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<WebApplication4.Models.MessageModel>
+
+
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Inbox</h2>
+
+<div class="row">
+    <div class="col s6 offset-s3">
+        <a class="waves-effect waves-light btn" href="@Url.Action("NewMessage", "Message")"><i class="material-icons left">add</i>Compose</a>
+        <h4>Inbox</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FromUser)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Body)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FromUser)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Body)
+                        </td>
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col s6 offset-s3">
+        <h4>Sent Messages</h4>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        To User
+                    </th>
+                    <th>
+                        Body
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.SentItems)
+            {
+                <tr>
+                    <td>
+                        @item.Date
+                    </td>
+                    <td>
+                        @item.ToUser
+                    </td>
+                    <td>
+                        @item.Body
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+        @*<a class="waves-effect waves-light btn" href="@Url.Action("AddBid", "HomePage", new { id = Model.ID })"><i class="material-icons left">add</i>Place Bid</a>*@
+
+    </div>
+</div>

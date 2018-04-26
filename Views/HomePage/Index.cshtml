@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApplication4.Models.PropertyListModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Property List</h2>
+<div class="row">
+    <div class="col s6 offset-s3">
+        <a class="waves-effect waves-light btn" href="@Url.Action("AddProperty", "HomePage")"><i class="material-icons left">add</i>Add Property</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostingDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MinPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CurrentPrice)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MinPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CurrentPrice)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Detail", "PropertyDetail", new { id = item.ID })
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+    </div>

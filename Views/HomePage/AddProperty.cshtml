@@ -1,0 +1,58 @@
+﻿@model WebApplication4.Models.PropertyModel
+
+@{
+    ViewData["Title"] = "AddProperty";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Add Property</h2>
+
+<div class="row">
+    @using (Html.BeginForm("AddProperty", "HomePage", FormMethod.Post,
+new { @class = "col s6 offset-s3" }))
+    {
+        @Html.ValidationSummary(true)
+        
+        <div class="row">
+            <div class="input-field col s12">
+                @Html.LabelFor(Model => Model.Address)
+                @Html.TextBoxFor(Model => Model.Address, new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "validate" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                @Html.DropDownListFor(Model => Model.Type, new List<SelectListItem>
+                 {
+                 new SelectListItem{ Text="Apartment", Value = "APARTMENT" },
+                 new SelectListItem{ Text="Condo", Value = "CONDO" },
+                 new SelectListItem{ Text="Houses", Value = "HOUSES" },
+                 })
+                @Html.LabelFor(Model => Model.Type)
+            </div>
+            <div class="input-field col s6">
+                @Html.LabelFor(Model => Model.MinPrice)
+                @Html.TextBoxFor(Model => Model.MinPrice, new { @class = "validate", @type = "number" })
+                @Html.ValidationMessageFor(model => model.MinPrice, "", new { @class = "validate" })
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Submit
+            <i class="material-icons right">send</i>
+        </button>
+    }
+
+</div>
+
+<script type="text/javascript">
+    //var elem = document.querySelector('select');
+    //var instance = M.FormSelect.init(elem, options);
+    //var instance = M.FormSelect.getInstance(elem);
+
+    // Or with jQuery
+
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+
+</script>

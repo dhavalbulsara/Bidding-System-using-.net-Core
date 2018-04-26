@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css" media="screen,projection" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.9/jquery.validate.unobtrusive.min.js"></script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        .field-validation-error {
+            color: red;
+        }
+
+        .input-validation-error {
+            border-bottom: 1px solid red !important;
+            -webkit-box-shadow: 0 1px 0 0 red !important;
+            box-shadow: 0 1px 0 0 red !important;
+        }
+
+        .text-danger {
+            color: red;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+    </style>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">UB Property Bidding</a>
+                <ul class="right hide-on-med-and-down">
+                    @if (!String.IsNullOrEmpty((string)Context.Session.GetString("username")))
+                    {
+                        <li>USER: @Context.Session.GetString("username")</li>
+                        <li><a href="@Url.Action("Logout", "HomePage")">Logout</a></li>
+                        <li><a href="@Url.Action("Index", "MyListing")">My Listings</a></li>
+                        <li><a href="@Url.Action("Inbox", "Message")">Inbox</a></li>
+                        <li><a href="@Url.Action("UserProfile", "User")">Users</a></li>
+
+
+
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Login", "User")">Login</a></li>
+                        <li><a href="@Url.Action("Create", "User")">Register</a></li>
+
+                    }
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    @RenderBody()
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>
+</body>
+</html>

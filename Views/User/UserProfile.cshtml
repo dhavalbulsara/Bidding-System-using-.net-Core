@@ -1,0 +1,77 @@
+﻿@model WebApplication4.Models.UserRegisteration
+@{
+    ViewData["Title"] = "UserProfile";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>UserProfile</h2>
+
+<div class="row">
+    @using (Html.BeginForm("UserProfile", "User", FormMethod.Post,
+new { @class = "col s6 offset-s3" }))
+    {
+        @Html.ValidationSummary(true)
+
+
+        <div class="row">
+            <div class="input-field col s12">
+                @Html.DropDownList("Id", (IEnumerable<SelectListItem>)ViewBag.Users)
+                @Html.LabelFor(Model => Model.fname)
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Submit
+            <i class="material-icons right">send</i>
+        </button>
+    }
+</div>
+
+<div class="row">
+
+    <div class="col s6 offset-s3">
+        <table>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.fname)</td>
+                <td>@Html.DisplayFor(Model => Model.fname)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.mname)</td>
+                <td>@Html.DisplayFor(Model => Model.mname)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.lname)</td>
+                <td>@Html.DisplayFor(Model => Model.lname)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.address)</td>
+                <td>@Html.DisplayFor(Model => Model.address)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.gender)</td>
+                <td>@Html.DisplayFor(Model => Model.gender)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.email)</td>
+                <td>@Html.DisplayFor(Model => Model.email)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.phone)</td>
+                <td>@Html.DisplayFor(Model => Model.phone)</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //var elem = document.querySelector('select');
+    //var instance = M.FormSelect.init(elem, options);
+    //var instance = M.FormSelect.getInstance(elem);
+
+    // Or with jQuery
+
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+
+</script>
